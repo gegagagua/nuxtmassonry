@@ -1,0 +1,63 @@
+%fullBackground {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+%transparentShadow {
+	position: absolute;
+  left: 0;
+  right: 0;
+  top : 0;
+  background: rgba(0, 0, 0, 0.34);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+%mailField {
+  color: #757575;
+  padding : $standartDistance * 0.5 $standartDistance;
+  width: 100%;
+  outline: none;
+  border:0px;
+  @include border-radius(4px);
+}
+
+%link {
+  padding: 12px 23px;
+  border: 2px solid transparent;
+  @include border-radius( 4px );
+  @include transition( $transitionSpeed );
+}
+
+%left-border-radius {
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+%right-border-radius {
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+%social-link {
+  font-size: 20px;
+  background: $blue;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}

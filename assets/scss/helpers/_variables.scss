@@ -1,0 +1,154 @@
+$standartDistance : 15px;
+$fontSize : 14px;
+$titleFontSize : 16px;
+$backgroundColor : #fff;
+$transitionSpeed : 0.3s;
+
+//breakpoints
+$mobile-width: 768px;
+$tablet-width : 992px;
+$desktop-width: 1024px;
+
+
+//colors
+$menuColor : #9f9f9f;
+$mainColor : #414141;
+$green : #69c5a9;
+$blue : #3d4974;
+$dark : #1a332d;
+
+
+
+/* hover color change on boxes */
+$box-hover-lighten: 15%;
+
+/* this color (brand-gray) was initially chosen manually on paletton.com (I wanted Bahama Blue's grayish version), so it had the same Hue, but to make it follow the brand color, I determined the change in saturation and lightness and emulate it with a formula:
+   darken(desaturate($brand-primary, 23.8%), 3.4%), which turns #205081 into #2D4762
+   below formula is slightly changed
+ */
+@function grayish($color){
+    @return darken(desaturate($color, 23.8%), 3.4%)
+}
+/*
+   same logic as above, but for a lighter version of a color (background for aside menu)
+   #205081 => #37608A
+ */
+@function brighter-alt($color){
+    @return lighten(desaturate($color, 17.3%), 6.4%)
+}
+
+$white: #fff;
+$black: #000;
+$gray: #ccc;
+$light: #707070;
+$dark-gray: #1a332d; /* corporate */
+$darker-gray: #666;
+$darkest-gray: #333;
+$gray-bg: #f7f8fb;
+$gray-border: #ccc/* #ccc */;
+$light-border: #e4e4e4;
+$more-darker-gray: #484848;
+/*  */
+$red: #ce172c; /* darken(#e31a31, 13%); *//* #e31a31 is the brandbook brand color */
+$blue: #205081;// 446cb3 San Marino, 3498db curious blue, 22A7F0 picton blue, 81CFE0 spray, #205081 Bahama Blue
+/* these colors are palette-matched to Bahama Blue (#205081) */
+/* http://paletton.com/#uid=73A0u0kq3oSgfw5l9rMsJkazhf6 */
+$light-blue: #386390;
+$lighter-blue: #5880A6;
+$dark-blue: #071734;            /* brand dark blue*/
+/* $light-red: #F66C7C; *//* http://paletton.com/#uid=15z0u0ksltI8nPHjDy6w7l2NDaE */
+$light-red: #e31a31;
+$dark-red: #510009;
+$orange: #C68525;
+$electric-blue: #30298A;
+$gold: #C6A125;
+/* http://paletton.com/#uid=7540u0kq3oSgfw5l9rMsJkazhf6 */
+$green: #88c354;/* corporate */
+$dark-green: #1a332d; /*corporate*/
+
+$text-color: $dark-green;/* #212529 */
+
+/* apply to bootstrap */
+$body-color: $text-color;
+
+/* will also be used by bootstrap */
+/* must be one of the named colors, otherwise some color mechanisms (e.g. box colors) may not match brand-primary to the original color */
+$brand-primary: $green;/* $red */
+$brand-primary-light: darken($brand-primary, 13%);
+/* $brand-primary: $blue;
+   $brand-primary-light: $light-blue; */
+/* $brand-primary: $dark-gray;
+   $brand-primary-light: $gray; */
+$brand-gray: grayish($brand-primary);
+$brand-secondary: $gray;
+$layout-primary: $green;/* $more-darker-gray; *//* $dark-gray */
+$layout-primary-light: lighten($layout-primary, $box-hover-lighten);
+$layout-primary-lighter: lighten($layout-primary-light, $box-hover-lighten);
+$layout-alt: $red;
+$layout-gray: grayish($layout-primary);
+
+/* project semantic colors */
+$error-color: $red;
+$danger-color: $red;
+$warning-color: $gold;//$light-red;
+$success-color: $green;
+$info-color: lighten($light-blue, $box-hover-lighten);
+$action-color: $layout-primary;/* $brand-primary */
+
+$semantic-colors: (
+    error: $error-color,
+    danger: $danger-color,
+    warning: $warning-color,
+    success: $success-color,
+    info: $info-color,
+    action: $action-color,
+);
+
+/* override bootstrap semantic colors */
+$primary:       $brand-primary;
+$secondary:     $brand-secondary;
+$success:       $success-color;
+$info:          $info-color;
+$warning:       $warning-color;
+$danger:        $light-red;
+// $light:         $li;
+$dark:          $dark-gray;
+
+/* main content wrappers also inherit this background (e.g. .inner-content) */
+$body-bg: $white;/* $light-gray */
+/* background for block containers, e.g. fieldsets, [maybe items or inputs, disabled now], etc to provide contrast with the background */
+$container-bg: $white;
+
+$bg-default: $white;
+$bg-alt: #f3faff;
+/* two color of the sky light blue versions - #eaf7ff and even lighter #f3faff */
+/* eaf7ff seems too on the nose */
+/* lighten($layout-primary, 55%); */
+/*f4f4f4 had too little contrast on $body-bg bg, eaeaea was too bland*/
+
+
+
+/* default (most commonly used) font size */
+$f-d: 14px;
+$f-xs: 9px;
+$f-sm: 12px;
+/* medium-small */
+$f-ms: 14px;
+$f-md: 16px;
+/* medium-large */
+$f-ml: 18px;
+$f-lg: 20px;
+$f-xl: 24px;
+$f-xxl: 30px;
+
+$font-sizes: (
+    d: $f-d,
+    xs: $f-xs,
+    sm: $f-sm,
+    ms: $f-ms,
+    md: $f-md,
+    ml: $f-ml,
+    lg: $f-lg,
+    xl: $f-xl,
+    xxl: $f-xxl,
+);

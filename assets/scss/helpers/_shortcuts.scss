@@ -1,0 +1,402 @@
+
+// .clearfix { @include clearfix(); }
+
+.w-25 { width: 25%; }
+.w-33 { width: 33.33333333%; }
+.w-50 { width: 50%; }
+.w-66 { width: 66.66666666%; }
+.w-75 { width: 75%; }
+.w-100 { width: 100%; }
+.w-auto { width: auto; }
+
+.bg-white {
+	background-color: #fff;
+}
+
+.pre {
+    white-space: pre;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-reverse {
+	flex-direction: row-reverse;
+}
+
+.flex-item {
+	flex: 1;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.w-65 {
+	width: 65%;
+}
+
+.cursor {
+	cursor: pointer;
+}
+
+.font-normal {
+	font-weight: normal;
+}
+
+.background {
+	background-position: cover;
+	width: 100%;
+	height: 100%;
+}
+
+$h-opts: 25 30 40 50 75 100;
+/* without e.g. 30 *1%, sass fails (no interpolation with percent sign) */
+@each $h-opt in $h-opts {
+    .h-#{$h-opt} {
+    height: #{$h-opt * 1%};
+}
+    .min-h-#{$h-opt} {
+        min-height: #{$h-opt * 1%};
+        /* the parent tag has flex column dir; see .inner-content-content > * */
+        .inner-content-content > & {
+            /* flex: 1; would set flex-shrink to 1 */
+            flex-grow: 1; flex-shrink: 0;
+        }
+    }
+    .min-h-#{$h-opt}vh {
+        min-height: #{$h-opt * 1vh};
+    }
+}
+
+.overflow-hidden { overflow: hidden; }
+.overflow-y-auto { overflow-y: auto; }
+.overflow-y-scroll { overflow-y: scroll; }
+
+.ws-now { white-space: nowrap; }
+
+.w-b-b-a { word-break: break-all; }
+
+.cu-d { cursor: default; }
+.cu-p { cursor: pointer; }
+
+.p-e-n, .pen { pointer-events: none; }
+.p-e-a, .pea { pointer-events: all; }
+
+.b-r-50 { border-radius: 50%; }
+@for $br-size from 2 through 8 {
+    .b-r-#{$br-size} { border-radius: #{$br-size}px; }
+}
+
+// .flex-apart { @include flex-apart(); }
+// .flex-apart-flex-start { @include flex-apart(flex-start); }
+// .flex-apart-flex-end { @include flex-apart(flex-end); }
+// .flex-apart-stretch { @include flex-apart(stretch); }
+// .flex-center { @include flex-center(); }
+// .inline-flex-center { @include inline-flex-center(); }
+.flex-wrap { flex-wrap: wrap; }
+
+/* instead of this hack, made default active tab display: flex; flex-direction: column; */
+/*.tab-content>.active {
+    &.flex-apart, &.flex-apart-flex-start, &.flex-apart-flex-end, &.flex-apart-stretch, &.flex-center, &.inline-flex-center, &.flex-wrap { display: flex; }
+}*/
+
+$flex-directions-v: (
+    center: center,
+    top: flex-start,
+    bottom: flex-end,
+    stretch: stretch,
+    spacebetween: space-between,
+    spacearound: space-around,
+);
+$flex-directions-h: (
+    center: center,
+    left: flex-start,
+    right: flex-end,
+    stretch: stretch,
+    spacebetween: space-between,
+    spacearound: space-around,
+);
+/* generates e.g. .flex-right-bottom that aligns contents that way using flexbox */
+@each $flex-dir-v-name, $flex-dir-v in $flex-directions-v {
+    @each $flex-dir-h-name, $flex-dir-h in $flex-directions-h {
+        .flex-#{$flex-dir-h-name}-#{$flex-dir-v-name} {
+        display: flex; flex-direction: row;
+        justify-content: #{$flex-dir-h}; align-items: #{$flex-dir-v};
+    }
+    }
+}
+@each $flex-dir-v-name, $flex-dir-v in $flex-directions-v {
+    @each $flex-dir-h-name, $flex-dir-h in $flex-directions-h {
+        .flex-col-#{$flex-dir-h-name}-#{$flex-dir-v-name} {
+        display: flex; flex-direction: column;
+        justify-content: #{$flex-dir-h}; align-items: #{$flex-dir-v};
+    }
+    }
+}
+
+.flex-0 { flex: 0; }
+.flex-1 { flex: 1; }
+
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-shrink-1 { flex-shrink: 1; }
+
+.flex-grow-0 { flex-grow: 0; }
+.flex-grow-1 { flex-grow: 1; }
+
+.order-0 { order: 0; }
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+
+
+
+
+
+$op-gen-list: 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100;
+@each $op-gen in $op-gen-list {
+    .op-#{$op-gen} { opacity: #{$op-gen/100}; }
+}
+
+.db, .d-b { display: block; }
+.dib, .d-i-b { display: inline-block; }
+.df, .d-f { display: flex; }
+.dif, .d-i-f { display: inline-flex; }
+.f-d-r { flex-direction: row; }
+.f-d-c { flex-direction: column; }
+.flex-row, .d-f-r { display: flex; flex-direction: row; }
+.flex-col, .flex-column, .d-f-c { display: flex; flex-direction: column; }
+.j-c-s-b, .justify-content-space-between { justify-content: space-between; }
+.j-c-c, .justify-content-center { justify-content: center; }
+.j-c-s, .justify-content-stretch { justify-content: stretch; }
+.j-c-f-s, .justify-content-flex-start { justify-content: flex-start; }
+.j-c-f-e, .justify-content-flex-end { justify-content: flex-end; }
+.a-i-c, .align-items-center { align-items: center; }
+.a-i-s, .align-items-stretch { align-items: stretch; }
+.a-i-f-s, .align-items-flex-start { align-items: flex-start; }
+.a-i-f-e, .align-items-flex-end { align-items: flex-end; }
+.j-s-c, .justify-self-center { justify-self: center; }
+.j-s-s, .justify-self-stretch { justify-self: stretch; }
+.j-s-f-s, .justify-self-flex-start { justify-self: flex-start; }
+.j-s-f-e, .justify-self-flex-end { justify-self: flex-end; }
+.a-s-c, .align-self-center { align-self: center; }
+.a-s-s, .align-self-stretch { align-self: stretch; }
+.a-s-f-s, .align-self-flex-start { align-self: flex-start; }
+.a-s-f-e, .align-self-flex-end { align-self: flex-end; }
+
+.vat, .v-a-t { vertical-align: top; }
+.vam, .v-a-m { vertical-align: middle; }
+
+.wsn, .w-s-n { white-space: nowrap; }
+
+@media (max-width: 767px){
+    .text-xs-left { text-align: left; }
+    .text-xs-center { text-align: center; }
+    .text-xs-right { text-align: right; }
+}
+@media (min-width: 768px){
+    .text-sm-left { text-align: left; }
+    .text-sm-center { text-align: center; }
+    .text-sm-right { text-align: right; }
+}
+@media (min-width: 992px){
+    .text-md-left { text-align: left; }
+    .text-md-center { text-align: center; }
+    .text-md-right { text-align: right; }
+}
+@media (min-width: 1200px){
+    .text-lg-left { text-align: left; }
+    .text-lg-center { text-align: center; }
+    .text-lg-right { text-align: right; }
+}
+/* place here to allow overriding components (e.g. .box) */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+//.sm .md .lg .xl etc
+@each $font-size-name, $font-size in $font-sizes {
+    .f-#{$font-size-name} { font-size: $font-size; }
+}
+
+$generic-font-size-min: 8;
+$generic-font-size-max: 48;
+@for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+    .f-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+}
+@media (max-width: 767px){
+    @for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+        .f-xs-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+    }
+}
+@media (max-width: 767px) and (orientation: portrait){
+    @for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+        .f-xs-pt-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+    }
+}
+@media (max-width: 767px) and (orientation: landscape){
+    @for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+        .f-xs-ls-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+    }
+}
+@media (min-width: 768px) and (max-width: 991px){
+    @for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+        .f-sm-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px){
+    @for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+        .f-md-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+    }
+}
+@media (min-width: 1200px){
+    @for $generic-font-size from $generic-font-size-min through $generic-font-size-max {
+        .f-lg-#{$generic-font-size} { font-size: #{$generic-font-size}px; }
+    }
+}
+
+
+@mixin non-bold() { font-weight: normal; }
+.non-bold { @include non-bold(); }
+@mixin bold() { font-weight: bold; }
+.bold { @include bold(); }
+@mixin underline() { text-decoration: underline; }
+.underline { @include underline(); }
+@mixin italic() { font-weight: italic; }
+.italic { @include italic(); }
+
+.underline-border {
+    /* inherit border-bottom-color from color: attribute */
+    border-bottom-width: 1px; border-bottom-style: solid;
+}
+
+.lh-100 { line-height: 100%; }
+.lh-120 { line-height: 120%; }
+.lh-150 { line-height: 150%; }
+
+.white { color: #fff; }
+.black { color: #000; }
+@mixin green() { color: $green; }
+@mixin gray() { color: $gray; }
+.green { @include green(); }
+.gray { @include gray(); }
+.light { color: $light; }
+
+.bg-light {
+    background-color: $light;
+}
+
+.m-auto { margin: auto; }
+.m-t-auto { margin-top: auto; }
+.m-b-auto { margin-bottom: auto; }
+.m-r-auto { margin-right: auto; }
+.m-l-auto { margin-left: auto; }
+
+$margin-gen-list: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 120 150 200;
+@each $margin-gen in $margin-gen-list {
+    .m-#{$margin-gen} { margin: #{$margin-gen}px; }
+    .m-t-#{$margin-gen} { margin-top: #{$margin-gen}px; }
+    .m-b-#{$margin-gen} { margin-bottom: #{$margin-gen}px; }
+    .m-r-#{$margin-gen} { margin-right: #{$margin-gen}px; }
+    .m-l-#{$margin-gen} { margin-left: #{$margin-gen}px; }
+    .p-#{$margin-gen} { padding: #{$margin-gen}px; }
+    .p-t-#{$margin-gen} { padding-top: #{$margin-gen}px; }
+    .p-b-#{$margin-gen} { padding-bottom: #{$margin-gen}px; }
+    .p-r-#{$margin-gen} { padding-right: #{$margin-gen}px; }
+    .p-l-#{$margin-gen} { padding-left: #{$margin-gen}px; }
+}
+/* separate responsive classes to avoid css priority issues */
+@each $margin-gen in $margin-gen-list {
+    @media (max-width: 767px){
+        .m-xs-#{$margin-gen} { margin: #{$margin-gen}px; }
+        .m-t-xs-#{$margin-gen} { margin-top: #{$margin-gen}px; }
+        .m-b-xs-#{$margin-gen} { margin-bottom: #{$margin-gen}px; }
+        .m-r-xs-#{$margin-gen} { margin-right: #{$margin-gen}px; }
+        .m-l-xs-#{$margin-gen} { margin-left: #{$margin-gen}px; }
+        .p-xs-#{$margin-gen} { padding: #{$margin-gen}px; }
+        .p-t-xs-#{$margin-gen} { padding-top: #{$margin-gen}px; }
+        .p-b-xs-#{$margin-gen} { padding-bottom: #{$margin-gen}px; }
+        .p-r-xs-#{$margin-gen} { padding-right: #{$margin-gen}px; }
+        .p-l-xs-#{$margin-gen} { padding-left: #{$margin-gen}px; }
+    }
+}
+@each $margin-gen in $margin-gen-list {
+    @media (min-width: 768px){
+        .m-sm-#{$margin-gen} { margin: #{$margin-gen}px; }
+        .m-t-sm-#{$margin-gen} { margin-top: #{$margin-gen}px; }
+        .m-b-sm-#{$margin-gen} { margin-bottom: #{$margin-gen}px; }
+        .m-r-sm-#{$margin-gen} { margin-right: #{$margin-gen}px; }
+        .m-l-sm-#{$margin-gen} { margin-left: #{$margin-gen}px; }
+        .p-sm-#{$margin-gen} { padding: #{$margin-gen}px; }
+        .p-t-sm-#{$margin-gen} { padding-top: #{$margin-gen}px; }
+        .p-b-sm-#{$margin-gen} { padding-bottom: #{$margin-gen}px; }
+        .p-r-sm-#{$margin-gen} { padding-right: #{$margin-gen}px; }
+        .p-l-sm-#{$margin-gen} { padding-left: #{$margin-gen}px; }
+    }
+}
+@each $margin-gen in $margin-gen-list {
+    @media (min-width: 992px){
+        .m-md-#{$margin-gen} { margin: #{$margin-gen}px; }
+        .m-t-md-#{$margin-gen} { margin-top: #{$margin-gen}px; }
+        .m-b-md-#{$margin-gen} { margin-bottom: #{$margin-gen}px; }
+        .m-r-md-#{$margin-gen} { margin-right: #{$margin-gen}px; }
+        .m-l-md-#{$margin-gen} { margin-left: #{$margin-gen}px; }
+        .p-md-#{$margin-gen} { padding: #{$margin-gen}px; }
+        .p-t-md-#{$margin-gen} { padding-top: #{$margin-gen}px; }
+        .p-b-md-#{$margin-gen} { padding-bottom: #{$margin-gen}px; }
+        .p-r-md-#{$margin-gen} { padding-right: #{$margin-gen}px; }
+        .p-l-md-#{$margin-gen} { padding-left: #{$margin-gen}px; }
+    }
+}
+@each $margin-gen in $margin-gen-list {
+    @media (min-width: 1200px){
+        .m-lg-#{$margin-gen} { margin: #{$margin-gen}px; }
+        .m-t-lg-#{$margin-gen} { margin-top: #{$margin-gen}px; }
+        .m-b-lg-#{$margin-gen} { margin-bottom: #{$margin-gen}px; }
+        .m-r-lg-#{$margin-gen} { margin-right: #{$margin-gen}px; }
+        .m-l-lg-#{$margin-gen} { margin-left: #{$margin-gen}px; }
+        .p-lg-#{$margin-gen} { padding: #{$margin-gen}px; }
+        .p-t-lg-#{$margin-gen} { padding-top: #{$margin-gen}px; }
+        .p-b-lg-#{$margin-gen} { padding-bottom: #{$margin-gen}px; }
+        .p-r-lg-#{$margin-gen} { padding-right: #{$margin-gen}px; }
+        .p-l-lg-#{$margin-gen} { padding-left: #{$margin-gen}px; }
+    }
+}
+
+
+
+$grid-list: 1 2 3 4 5 6 7 8 9 10 11 12;
+@each $grid in $grid-list {
+    // .m-#{$margin-gen} { margin: #{$margin-gen}px; }
+    .col-#{$grid} {
+        width: $grid * 8.33333%;
+        float: left;
+        min-height: 1px;
+    }
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.clearfix {
+	clear: both;
+	display: table;
+}

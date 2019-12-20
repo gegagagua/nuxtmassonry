@@ -1,0 +1,55 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+
+@mixin transition( $speed ) {
+	-webkit-transition: all $speed ease;                  
+  -moz-transition: all $speed ease;                 
+  -o-transition: all $speed ease;   
+  -ms-transition: all $speed ease;          
+  transition: all $speed ease;
+}
+
+
+@mixin box-shadow($params) {
+  -webkit-box-shadow: $params;
+  -moz-box-shadow: $params;
+  box-shadow: $params;
+}
+
+
+// responsive
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin mobile-portrait {
+  @media (max-width: #{$mobile-width}) and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media (max-width: #{$mobile-width}) and (orientation : landscape) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
