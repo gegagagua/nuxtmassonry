@@ -31,7 +31,8 @@ export default {
   */
   plugins: [
     { src: '~/plugins/vue-masonry', ssr: false },
-    { src: '~/plugins/lightGallery.client.js', ssr: false}
+    { src: '~/plugins/lightGallery.client.js', ssr: false },
+    '~/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules

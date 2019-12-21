@@ -6,7 +6,7 @@
         Контакты
       </p>
       <div class="info">
-        info@mysite.com | Телефон: +7 (945) 000-00-00
+        {{ data.email }} | {{ $t('phone') }}: {{ data.telephone }}
       </div>
       <form action="" class="m-t-20 p-b-100">
         <input :placeholder="$t('form.name')" type="text">
@@ -18,3 +18,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Contact',
+  computed: {
+    data () {
+      return this.$store.state.contact
+    }
+  },
+  fetch ({ store }) {
+    store.dispatch('getContactData')
+  }
+}
+</script>

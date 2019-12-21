@@ -11,5 +11,6 @@ export default {
     subject: 'Тема',
     message: 'Сообщение',
     send: 'Отправить'
-  }
+  },
+  phone: 'Телефон'
 }

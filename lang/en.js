@@ -4,7 +4,7 @@ export default {
     bio: 'Biography',
     contact: 'Contact'
   },
-  title: 'ИГОРЬ КОЗЛОВ  +  СКУЛЬПТУРА',
+  title: 'IGOR KOZLOV + SCULPTURE',
   form: {
     name: 'Name',
     email: 'Email',

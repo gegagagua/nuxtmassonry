@@ -21,7 +21,7 @@
     </div>
 
     <div class="langs float-right w-50 text-right">
-      <nuxt-link :to="`/ru` + $route.fullPath" class="Header__Link" active-class="none" exact>
+      <nuxt-link :class="{'nuxt-link-exact-active' : $i18n.locale == 'ru'}" :to="`/ru` + $route.fullPath" class="Header__Link" active-class="none" exact>
         RU
       </nuxt-link>
       <nuxt-link :to="$route.fullPath.replace(/^\/[^\/]+/, '')" class="Header__Link" active-class="none" exact>

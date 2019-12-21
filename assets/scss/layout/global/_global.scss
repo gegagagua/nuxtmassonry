@@ -52,7 +52,7 @@ ul {
 	margin: 0 auto;
 
 	@include mobile {
-		width: 98%;
+		width: 94%;
 	}
 }
 
@@ -148,6 +148,22 @@ header {
 	}
 
 	&:hover::before {
-		opacity: 0.5;
+		opacity: 0.7;
+	}
+}
+
+.align-center {
+	text-align: center;
+}
+
+.footer {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.socials {
+	img {
+		width: 19px;
+		height: 19px;
 	}
 }

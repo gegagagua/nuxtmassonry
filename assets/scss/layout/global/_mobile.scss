@@ -1,0 +1,19 @@
+@media screen and (max-width: 992px) {
+    header h1 {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .w-50 {
+        width: auto;
+    }
+
+    .w-25,
+    .w-75 {
+        width: 100%;
+    }
+
+    .about-img {
+        padding-right: 0;
+    }
+}
